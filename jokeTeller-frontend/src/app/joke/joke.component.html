@@ -1,0 +1,23 @@
+<div>
+  <h2>Get a Joke!</h2>
+
+  <button (click)="fetchJoke('Programming')"></button>"
+  <button (click)="fetchJoke('Misc')"></button>" <button (click)="fetchJoke('Dark')"></button>"
+  <button (click)="fetchJoke('Pun')"></button>" <button (click)="fetchJoke('Spooky')"></button>"
+  <button (click)="fetchJoke('Christmas')"></button>" <button (click)="fetchJoke('Any')"></button>"
+</div>
+
+@if (joke(); as currentJoke) {
+  <div>
+    <h3>{{ currentJoke.Category }} Joke</h3>
+
+    @if (currentJoke.Type === 'twopart') {
+      <p><b>Setup:</b> {{ currentJoke.Setup }}</p>
+      <p><b>Delivery:</b> {{ currentJoke.Delivery }}</p>
+    } @else {
+      <p>{{ currentJoke.Joke }}</p>
+    }
+  </div>
+} @else {
+  <p>Click a button to get a joke!</p>
+}
